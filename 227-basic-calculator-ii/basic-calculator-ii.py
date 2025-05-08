@@ -42,7 +42,5 @@ class Solution:
                         operands.append(val1//val2)
                 operators.append(op)
                 s = s[1:]
-            
-            print(operands, operators)
         
         return operands[0]
