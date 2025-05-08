@@ -2,45 +2,42 @@ import re
 
 class Solution:
 
-    def precedence(self, c):
-        if c == "#":
-            return 0
-        elif (c in "+-"):
-            return 1
-        else:
-            return 2
+    def apply_op(self, op, b, a):
+        if op == "+":
+            return a+b
+        elif op == "-":
+            return a-b
+        elif op == "*":
+            return a*b
+        elif op == "/":
+            return a//b
 
     def calculate(self, s: str) -> int:
 
+        precedence = {"+": 1, "-": 1, "*": 2, "/": 2}
         operands = []
         operators = []
 
-        s += "#"
+        i = 0
 
-        while s:
+        while i < len(s):
 
-            if s[0] == " ":
-                s = s[1:]
+            if s[i] == " ":
+                i += 1
                 continue
-            pattern_match = re.match(r"^(\d+)", s)
-            if (pattern_match):
-                operands.append(int(n := pattern_match.group(1)))
-                s = s[len(n):]
+            if s[i].isdigit():
+                num = 0
+                while i < len(s) and s[i].isdigit():
+                    num = num * 10 + int(s[i])
+                    i += 1
+                operands.append(num)
             else:
-                op = s[0]
-                while (operators and self.precedence(operators[-1]) >= self.precedence(op)):
-                    val2 = operands.pop()
-                    val1 = operands.pop()
-                    prevop = operators.pop()
-                    if prevop == "+":
-                        operands.append(val1+val2)
-                    elif prevop == "-":
-                        operands.append(val1-val2)
-                    elif prevop == "*":
-                        operands.append(val1*val2)
-                    else:
-                        operands.append(val1//val2)
-                operators.append(op)
-                s = s[1:]
+                while (operators and precedence[operators[-1]] >= precedence[s[i]]):
+                    operands.append(self.apply_op(operators.pop(), operands.pop(), operands.pop()))
+                operators.append(s[i])
+                i += 1
+        
+        while (operators):
+            operands.append(self.apply_op(operators.pop(), operands.pop(), operands.pop()))
         
         return operands[0]
