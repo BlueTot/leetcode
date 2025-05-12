@@ -8,7 +8,6 @@ class Solution:
         right = len(nums)-1
         while left <= right:
             mid = (left + right) // 2
-            print(left, right, mid)
             if nums[mid] > nums[(mid+1)%len(nums)]:
                 amount = mid + 1
                 break
@@ -17,7 +16,6 @@ class Solution:
             else:
                 right = mid - 1
         
-        print(amount)
         # find the index given we know the shift amount
         left = 0
         right = len(nums) - 1
