@@ -15,7 +15,6 @@ class Solution:
             node.val -= amount1
             amount2, move2 = distribute(node.right)
             node.val -= amount2
-            print(node, 1 - node.val, move1+move2+abs(amount1)+abs(amount2))
             return (1 - node.val, move1+move2+abs(amount1)+abs(amount2))
         
         return distribute(root)[1]
