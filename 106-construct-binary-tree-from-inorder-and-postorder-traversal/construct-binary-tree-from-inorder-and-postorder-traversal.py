@@ -9,7 +9,6 @@ class Solution:
         indices = {v : k for k, v in enumerate(inorder)}
 
         def construct(p1, p2, i1, i2):
-            print(p1, p2, i1, i2)
             if p2 < p1 or i2 < i1:
                 return None
             if p2 == p1 and i1 == i2:
