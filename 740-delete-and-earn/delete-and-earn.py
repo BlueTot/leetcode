@@ -14,7 +14,5 @@ class Solution:
                 scores[i] = max(num * count, scores[i-1])
             else:
                 scores[i] = num * count
-        print(counts)
-        print(scores)
         return max(scores)
             
