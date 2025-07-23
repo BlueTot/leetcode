@@ -16,7 +16,6 @@ class Solution:
                         count += lts[j][1]
                 lts[i] = (largest + 1, max(1, count))
             best = max(best, lts[i][0])
-        print(lts, best)
         output = 0
         for length, count in lts:
             if length == best:
