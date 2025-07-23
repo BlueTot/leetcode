@@ -32,10 +32,3 @@ class Solution:
             if count > 0:
                 total += (nc2modm(a, M) * nc2modm(b, M) * count) % M
         return total % M
-        
-        # total = 0
-        # for y1, y2 in combinations(valid_groups, 2):
-        #     a, b = len(groups[y1]), len(groups[y2])
-        #     total += calculate(a, b)
-        return total
-        
