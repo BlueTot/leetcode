@@ -18,16 +18,14 @@ class Solution:
             groups[y].add((x, y))
         
         def choose2counter(counts):
-            result = {}
             for a, b in combinations(counts.keys(), 2):
-                result[(a,b)] = counts[a] * counts[b]
+                yield ((a, b), counts[a] * counts[b])
             for n, c in counts.items():
-                result[(n, n)] = c * (c - 1) // 2
-            return result
+                yield ((n, n), c * (c - 1) // 2)
         
         lengths = Counter([len(v) for v in groups.values() if len(v) >= 2])
         total = 0
-        for pair, count in choose2counter(lengths).items():
+        for pair, count in choose2counter(lengths):
             a, b = pair
             if count > 0:
                 total += (nc2modm(a, M) * nc2modm(b, M) * count) % M
