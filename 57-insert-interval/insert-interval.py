@@ -1,14 +1,10 @@
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         
+        # find insert position using binary search
         def search(intervals, newInterval):
             left = 0
             right = len(intervals)
-
-            # if newInterval[0] < intervals[0][0]:
-            #     return 0
-            # elif newInterval[0] > intervals[-1][0]:
-            #     return len(intervals)
 
             while left < right:
                 mid = (left + right) // 2
@@ -18,6 +14,7 @@ class Solution:
                     left = mid + 1
             return left
         
+        # merge last interval in new array with new interval
         def handle(new, interval):
             s1, e1 = new[-1]
             s2, e2 = interval
@@ -27,15 +24,17 @@ class Solution:
                 new.append([s2, e2])
         
         insertPosition = search(intervals, newInterval)
-        print(insertPosition)
+
         if insertPosition == 0:
+            # if we insert at the start, set base to be new interval
             new = [newInterval] 
         else:
+            # otherwise, put in all intervals before the insert position
+            # and handle the new interval
             new = [*intervals[:insertPosition]]
             handle(new, newInterval)
 
-        print(new)
-        print(intervals)
+        # handle the remaining intervals after the insert position
         for i in range(insertPosition, len(intervals)):
             handle(new, intervals[i])
 
