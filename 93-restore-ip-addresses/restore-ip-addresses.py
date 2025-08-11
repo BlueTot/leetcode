@@ -2,6 +2,7 @@ class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
 
         addresses = set()
+  
         def populate(s: str, curr: List[str]) -> List[str]:
 
             if not s and len(curr) == 4:
