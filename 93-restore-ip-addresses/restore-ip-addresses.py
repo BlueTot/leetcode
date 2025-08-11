@@ -10,7 +10,6 @@ class Solution:
             if not s:
                 return
 
-            # print(s, curr)
             for i in range(1, 4):
                 # in range, and has no leading zeroes
                 if 0 <= int(s[:i]) <= 255 and str(int(s[:i])) == s[:i]:
@@ -18,6 +17,5 @@ class Solution:
                     populate(s[i:], curr)
                     curr.pop()
 
-        
         populate(s, [])
         return list(addresses)
