@@ -8,7 +8,6 @@ class Solution:
             count += 1
             length += len(words[i])
             actual_length = length + count - 1
-            print(i, count, length)
 
             if actual_length > maxWidth:
 
@@ -21,7 +20,7 @@ class Solution:
                 rem = maxWidth - (length + (count - 1) * inter_width)
                 s = ""
                 k = 0
-                print(inter_width, rem)
+
                 for j in range(i-count, i):
                     s += words[j]
                     if j < i - 1:
