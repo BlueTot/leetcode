@@ -16,6 +16,4 @@ class Solution:
         pos = search(arr) - 1
         value = 0 if pos == -1 else arr[pos]
         missing_so_far = value - (pos + 1)
-        print(pos)
-        print(missing_so_far)
         return value + (k - missing_so_far)
