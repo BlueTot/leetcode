@@ -1,3 +1,5 @@
+from functools import cache
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -7,6 +9,7 @@
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
         
+        @cache
         def trees(nums : Tuple[int]) -> List[Optional[TreeNode]]:
             if len(nums) == 0:
                 return [None]
