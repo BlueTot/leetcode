@@ -23,5 +23,4 @@ class Solution:
         
             ways[i] %= Solution.MOD
 
-        print(ways)
         return ways[n]
