@@ -8,7 +8,6 @@ class StockSpanner:
 
     def next(self, price: int) -> int:
         self.__prices.append(price)
-        # print(self.__prices, self.__mstack)
         while self.__mstack and self.__prices[self.__mstack[-1]] <= price:
             self.__mstack.pop()
         result = self.__i - (self.__mstack[-1] if self.__mstack else -1)
