@@ -12,6 +12,4 @@ class Solution:
             cash.pop(0)
             cash.append(newcash)
         
-            print(hold, cash)
-        
         return max(hold[1], cash[1])
