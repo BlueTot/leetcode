@@ -1,25 +1,27 @@
-from functools import cache
-
 class Solution:
 
     MOD = 10**9 + 7
 
-    @cache
     def numTilings(self, n: int) -> int:
 
-        if n <= 1:
-            return 1
+        ways = [0 for _ in range(n+1)]
+        ways[0] = 1
 
-        ways = 0
+        for i in range(1, n+1):
+            
+            # vertical domino
+            ways[i] += ways[max(0, i-1)]
 
-        # vertical domino
-        ways += 1 * self.numTilings(n-1)
+            # horizontal domino
+            if i - 2 >= 0:
+                ways[i] += ways[i-2]
 
-        # horizontal domino
-        ways += 1 * self.numTilings(n-2)
-
-        # tromino
-        for i in range(3, n+1):
-            ways += 2 * self.numTilings(n-i)
+            # tromino
+            for j in range(3, i+1):
+                if i - j >= 0:
+                    ways[i] += 2 * ways[i-j]
         
-        return ways % Solution.MOD
+            ways[i] %= Solution.MOD
+
+        print(ways)
+        return ways[n]
