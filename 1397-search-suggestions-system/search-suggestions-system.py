@@ -23,14 +23,6 @@ class Trie:
                 curr.children[char].isTerminal = True
             curr = curr.children[char]
     
-    def __findAll(self, node: "TreeNode", curr: str):
-        result = []
-        if node.isTerminal:
-            result.extend([curr])
-        for char in sorted(node.children.keys()):
-            result.extend(self.__findAll(node.children[char], curr+char))
-        return result
-    
     def __findThreeSmallest(self, node: "TreeNode", curr: str):
         result = []
         if node.isTerminal:
@@ -46,7 +38,6 @@ class Trie:
     
     def searchByCharacter(self, searchWord: str) -> List[List[str]]:
         self.__findThreeSmallest(self.__root, "")
-        print(self.__threeSmallests)
         result = []
         foundEmpty = False
         currStr = ""
@@ -60,17 +51,6 @@ class Trie:
                 result.append(self.__threeSmallests[currStr])
                 curr = curr.children[char]
         return result
-        # result = []
-        # foundEmpty = False
-        # for i, char in enumerate(searchWord):
-        #     if foundEmpty or char not in curr.children:
-        #         result.append([])
-        #         foundEmpty = True
-        #     else:
-        #         words = self.__findAll(curr.children[char], searchWord[:i+1])
-        #         result.append(words if len(words) <= 3 else words[:3])
-        #         curr = curr.children[char]
-        # return result
     
     def __repr__(self):
         return str(self.__root)
