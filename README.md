@@ -1,3 +1,3 @@
 # Leetcode
 
-My collection of completed leetcode problems, synced to this repository via **LeetHub v3** and **leetcode-export**. So far, I have completed 300 problems.
+My collection of completed leetcode problems, synced to this repository via [**LeetHub v3**](https://github.com/raphaelheinz/LeetHub-3.0) and [**leetcode-export**](https://github.com/NeverMendel/leetcode-export). So far, I have completed 300 problems.
