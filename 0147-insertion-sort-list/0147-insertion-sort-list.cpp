@@ -41,22 +41,14 @@ public:
             // slot in at the start
             if (prev == NULL) {
                 first->next = curr; // connect first up to the chain
-                prev_node->next = next_node; // update to skip removed node
                 new_head = first; // update head
 
             } else {
                 first->next = curr; // connect up to curr
                 prev->next = first; // connect prev up
-                prev_node->next = next_node;
-                // if (curr->next == first) { // if next node is the node that's removed
-                //     curr->next = next_node; // skip past it
-                //     prev_node = curr;
-                // } else {
-                //     prev_node->next = next_node;
-                // }
-
             }
 
+            prev_node->next = next_node; // update to skip removed node
             first = next_node;
 
         }
