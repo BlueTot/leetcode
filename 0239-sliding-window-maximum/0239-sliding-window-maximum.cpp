@@ -2,44 +2,36 @@ class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         
-        stack<pair<int, int>> s1, s2;
+        deque<int> q; // monotonic queue
 
+        // maximum is at the front
         auto findMax = [&]() {
-            if (s1.empty() || s2.empty())
-                return s1.empty() ? s2.top().second : s1.top().second;
-            else
-                return max(s1.top().second, s2.top().second);
+            return q.front();
         };
 
+        // if elements in front are smaller, we can remove them
         auto enqueue = [&](int element) {
-            int maximum = s1.empty() ? element : max(element, s1.top().second);
-            s1.push({element, maximum});
+            while (!q.empty() && q.back() < element)
+                q.pop_back();
+            q.push_back(element);
         };
 
-        auto dequeue = [&]() {
-            if (s2.empty()) {
-                while (!s1.empty()) {
-                    int element = s1.top().first;
-                    s1.pop();
-                    int maximum = s2.empty() ? element : max(element, s2.top().second);
-                    s2.push({element, maximum});
-                }
-            }
-            s2.pop();
+        // we only remove the front element if it matches
+        // because we don't keep track of every element
+        auto dequeue = [&](int element) {
+            if (!q.empty() && q.front() == element)
+                q.pop_front();
         };
 
         vector<int> result;
 
+        // constant sliding window
         for (int i = 0; i < nums.size(); i++) {
-            if (i < k) {
-                enqueue(nums[i]);
-            } else {
-                dequeue();
-                enqueue(nums[i]);
-            }
-            if (i >= k - 1) {
+            if (i >= k)
+                dequeue(nums[i-k]);
+            enqueue(nums[i]);
+            if (i >= k - 1)
                 result.push_back(findMax());
-            }
         }
 
         return result;
