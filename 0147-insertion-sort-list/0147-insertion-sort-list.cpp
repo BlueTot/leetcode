@@ -21,19 +21,9 @@ public:
         
         while (first != NULL) {
 
-            ListNode* curr2 = new_head;
-            // while (curr2 != NULL) {
-            //     std::cout << curr2->val << ", ";
-            //     curr2 = curr2->next;
-            // }
-            // std::cout << "\n";
-            // std::cout << (first != NULL ? first->val : NULL) << "\n";
-            // std::cout << new_head->val << "\n";
-            // std::cout << prev_node->val << "\n";
-
-            ListNode* next_node = first->next;
-            ListNode* curr = new_head;
-            ListNode* prev = NULL;
+            ListNode* next_node = first->next; // store the next node
+            ListNode* curr = new_head; // current moving pointer
+            ListNode* prev = NULL; // previous of the curr
 
             // advance until we find a spot
             while (curr != first && first->val > curr->val) {
@@ -41,27 +31,30 @@ public:
                 curr = curr->next;
             }
 
+            // if we didn't find a spot, then the list is in order.
             if (curr == first) {
                 first = next_node;
                 prev_node = curr;
                 continue;
             }
             
-            // slot in the node
+            // slot in at the start
             if (prev == NULL) {
-                first->next = curr;
-                prev_node->next = next_node;
-                new_head = first;
+                first->next = curr; // connect first up to the chain
+                prev_node->next = next_node; // update to skip removed node
+                new_head = first; // update head
+
             } else {
-                // std::cout << first->val << " " << prev->val << " " << curr->val << " " << prev_node->val << "\n";
-                first->next = curr;
-                prev->next = first;
-                if (curr->next == first) {
-                    curr->next = next_node;
-                    prev_node = curr;
-                } else {
-                    prev_node->next = next_node;
-                }
+                first->next = curr; // connect up to curr
+                prev->next = first; // connect prev up
+                prev_node->next = next_node;
+                // if (curr->next == first) { // if next node is the node that's removed
+                //     curr->next = next_node; // skip past it
+                //     prev_node = curr;
+                // } else {
+                //     prev_node->next = next_node;
+                // }
+
             }
 
             first = next_node;
