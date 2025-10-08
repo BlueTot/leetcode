@@ -18,17 +18,11 @@ public:
                 result += 9LL * (int) pow(10, i-1) * i;
             }
 
-            // cout << result << " ";
-
             // add on the remaining gap
             result += (n - (long long) pow(10, num_digits - 1)) * num_digits;
 
             return result;
         };
-
-        // for (int i = 1; i < 200; i++) {
-        //     cout << findIndex(i) << "\n";
-        // }
 
         int left = 1;
         int right = 1 << 30;
