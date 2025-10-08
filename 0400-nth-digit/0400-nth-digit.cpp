@@ -36,9 +36,7 @@ public:
             else
                 left = mid + 1;
         }
-
-        cout << left;
-
+        
         int start_number = left - 1;
         int remaining = n - findIndex(start_number);
         return to_string(start_number).at(remaining) - '0';
