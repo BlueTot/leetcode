@@ -7,6 +7,7 @@ My collection of completed leetcode problems, synced to this repository via [**L
 ## Array
 |  |
 | ------- |
+| [0416-partition-equal-subset-sum](https://github.com/BlueTot/leetcode/tree/master/0416-partition-equal-subset-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 ## Divide and Conquer
 |  |
@@ -15,6 +16,7 @@ My collection of completed leetcode problems, synced to this repository via [**L
 ## Dynamic Programming
 |  |
 | ------- |
+| [0416-partition-equal-subset-sum](https://github.com/BlueTot/leetcode/tree/master/0416-partition-equal-subset-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 ## Queue
 |  |
