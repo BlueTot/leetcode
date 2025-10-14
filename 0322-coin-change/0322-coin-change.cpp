@@ -4,8 +4,8 @@ public:
 
         /* complete knapsack approach */
         vector<int> dp(amount + 1, 1 << 30);
-
         dp[0] = 0;
+        
         for (int i = 0; i < coins.size(); i++) {
             for (int j = coins[i]; j <= amount; j++) {
                 dp[j] = min(dp[j], dp[j - coins[i]] + 1);
