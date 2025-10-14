@@ -4,9 +4,10 @@ public:
         
         int sum = 0;
         for (int weight : stones) {
-            sum += 2*weight;
+            sum += 2*weight; // scale everything into positive zone
         }
 
+        /* 0-1 knapsack dp array */
         vector<bool> dp(sum + 1, false);
         dp[0] = true;
 
@@ -16,9 +17,15 @@ public:
             }
         }
 
+        /* we want to find the smallest sum that is possible when
+           we either subtract stones[i] or add stones[i] to the sum
+           
+           we ignore negative sums as that is not possible by the
+           problem.
+        */
         for (int j = sum / 2; j <= sum; j++) {
             if (dp[j])
-                return j - sum / 2;
+                return j - sum / 2; // normalise
         }
 
         return 0;
