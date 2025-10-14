@@ -7,24 +7,17 @@ public:
             sum += 2*weight;
         }
 
-        vector<vector<bool>> dp(stones.size(), vector<bool>(sum + 1, false));
+        vector<bool> dp(sum + 1, false);
+        dp[0] = true;
+
         for (int i = 0; i < stones.size(); i++) {
-            for (int j = 0; j <= sum; j++) {
-                if (i == 0) {
-                    if (j == 0)
-                        dp[i][j] = true;
-                    else
-                        dp[i][j] = stones[i]*2 == j;
-                } else {
-                    dp[i][j] = dp[i-1][j];
-                    if (j >= stones[i]*2)
-                        dp[i][j] = dp[i][j] || dp[i-1][j-stones[i]*2];
-                }
+            for (int j = sum; j >= stones[i]*2; j--) {
+                dp[j] = dp[j] || dp[j-stones[i]*2];
             }
         }
 
         for (int j = sum / 2; j <= sum; j++) {
-            if (dp[stones.size()-1][j])
+            if (dp[j])
                 return j - sum / 2;
         }
 
