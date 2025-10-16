@@ -3,18 +3,17 @@ public:
     int maxEnvelopes(vector<vector<int>>& envelopes) {
         
         /* sort array in non-decreasing order with first parameter first
-        then second parameter. 
+        then second parameter decreasing
+        
+        this allows us to find the smallest height given the first parameter
+        is valid using binary search.
+
         we can use this to find the longest increasing sequence of heights
         given the first parameter cannot be equal, handled by fits function */
 
         auto compare = [](const vector<int>& a, const vector<int>& b) {
             return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
         };
-
-        // /* two boxes fit criteria */
-        // auto fits = [](const vector<int>&a, const vector<int>& b) {
-        //     return a[0] < b[0] && a[1] < b[1];
-        // };
 
         sort(envelopes.begin(), envelopes.end(), compare);
         
