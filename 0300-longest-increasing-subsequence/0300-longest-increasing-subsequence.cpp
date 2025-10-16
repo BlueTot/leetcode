@@ -18,12 +18,10 @@ public:
                 }
             }
 
-            // cout << dp[left-1] << " " << nums[i] << " " << dp[left] << "\n";
             if (dp[left-1] < nums[i] && nums[i] < dp[left])
                 dp[left] = nums[i];
-            // cout << left << " " << dp[left] << "\n";
+
         }
-        // cout << "\n";
 
         int res = 0;
         for (int i = 0; i < dp.size(); i++) {
