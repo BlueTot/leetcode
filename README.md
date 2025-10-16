@@ -7,6 +7,7 @@ My collection of completed leetcode problems, synced to this repository via [**L
 ## Array
 |  |
 | ------- |
+| [0300-longest-increasing-subsequence](https://github.com/BlueTot/leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0416-partition-equal-subset-sum](https://github.com/BlueTot/leetcode/tree/master/0416-partition-equal-subset-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 | [1130-last-stone-weight-ii](https://github.com/BlueTot/leetcode/tree/master/1130-last-stone-weight-ii) |
@@ -17,6 +18,7 @@ My collection of completed leetcode problems, synced to this repository via [**L
 ## Dynamic Programming
 |  |
 | ------- |
+| [0300-longest-increasing-subsequence](https://github.com/BlueTot/leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0416-partition-equal-subset-sum](https://github.com/BlueTot/leetcode/tree/master/0416-partition-equal-subset-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 | [1130-last-stone-weight-ii](https://github.com/BlueTot/leetcode/tree/master/1130-last-stone-weight-ii) |
@@ -28,4 +30,8 @@ My collection of completed leetcode problems, synced to this repository via [**L
 |  |
 | ------- |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
+## Binary Search
+|  |
+| ------- |
+| [0300-longest-increasing-subsequence](https://github.com/BlueTot/leetcode/tree/master/0300-longest-increasing-subsequence) |
 <!---LeetCode Topics End-->
