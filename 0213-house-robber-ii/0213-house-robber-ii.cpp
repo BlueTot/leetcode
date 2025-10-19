@@ -5,36 +5,29 @@ public:
         /* case nums is length 1 */
         if (nums.size() == 1)
             return nums[0];
-        
-        /* we can either rob houses 0 to n-2 */
-        int max1 = 0;
-        vector<int> dp1(nums.size(), 0);
-        for (int i = 0; i < nums.size() - 1; i++) {
-            if (i == 0) {
-                dp1[i] = nums[i];
-            } else if (i == 1) {
-                dp1[i] = max(dp1[i-1], nums[i]);
-            } else {
-                dp1[i] = max(dp1[i-1], nums[i] + dp1[i-2]);
-            }
-            max1 = max(max1, dp1[i]);
-        }
 
-        /* or rob houses 1 to n-1 */
-        int max2 = 0;
-        vector<int> dp2(nums.size(), 0);
-        for (int i = 1; i < nums.size(); i++) {
-            if (i == 1) {
-                dp2[i] = nums[i];
-            } else if (i == 2) {
-                dp2[i] = max(dp2[i-1], nums[i]);
-            } else {
-                dp2[i] = max(dp2[i-1], nums[i] + dp2[i-2]);
+        /* maximum in the range l to r not inclusive */
+        auto max_range = [&](int l, int r) {
+            int res = 0;
+            int first = 0, second = 0, temp = 0;
+            for (int i = l; i < r; i++) {
+                if (i == l) {
+                    first = nums[i];
+                } else if (i == l + 1) {
+                    second = max(first, nums[i]);
+                } else {
+                    temp = max(second, nums[i] + first);
+                    first = second;
+                    second = temp;
+                }
+                res = max(res, max(first, second));
             }
-            max2 = max(max2, dp2[i]);
-        }
+            return res;
+        };
 
-        return max(max1, max2);
+        /* we can either rob 0 to n-2, or 1 to n-1
+           because we can't rob houses 0 and n-1 at the same time*/
+        return max(max_range(0, nums.size()-1), max_range(1, nums.size()));
 
     }
 };
