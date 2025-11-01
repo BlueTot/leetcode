@@ -14,16 +14,16 @@ public:
 
         /* determine values to remove */
         
-        stack<int> mstack;
-        unordered_set<int> removes;
+        stack<ListNode*> mstack;
+        unordered_set<ListNode*> node_set;
 
         ListNode* curr = head;
         while (curr != NULL) {
-            while (!mstack.empty() && mstack.top() < curr->val) {
-                removes.insert(mstack.top());
+            while (!mstack.empty() && mstack.top()->val < curr->val) {
+                node_set.insert(mstack.top());
                 mstack.pop();
             }
-            mstack.push(curr->val);
+            mstack.push(curr);
             curr = curr->next;
         }
 
@@ -32,17 +32,17 @@ public:
         curr = head;
 
         while (curr->next != NULL) {
-            if (removes.contains(curr->next->val)) {
+            if (node_set.contains(curr->next)) {
                 curr->next = curr->next->next;
             } else {
                 curr = curr->next;
             }
         }
 
-        if (removes.contains(head->val)) {
+        if (node_set.contains(head)) {
             head = head->next;
         }
-        
+
         return head;
 
     }
