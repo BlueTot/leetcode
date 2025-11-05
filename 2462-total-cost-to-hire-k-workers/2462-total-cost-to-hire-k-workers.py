@@ -7,12 +7,12 @@ class Solution:
             workers = [(n, 0) for n in costs[:candidates]] + [(n, 1) for n in costs[-candidates:]]
         else:
             workers = [(n, i < len(costs)//2) for i, n in enumerate(costs)]
-            
+
         heapify(workers)
 
         total = 0
         head, tail = candidates, len(costs)-candidates-1
-        print(len(workers))
+
         for _ in range(k):
             choice, start = heappop(workers)
             total += choice
@@ -24,7 +24,6 @@ class Solution:
                 if 0 <= tail < len(costs) and head <= tail:
                     heappush(workers, (costs[tail], 1))
                     tail -= 1
-            print(choice, head, tail)
         
         return total
 
