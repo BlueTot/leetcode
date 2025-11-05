@@ -3,11 +3,16 @@ from heapq import heappush, heappop, heapify
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
         
-        workers = [(n, 0) for n in costs[:candidates]] + [(n, 1) for n in costs[-candidates:]]
+        if candidates * 2 <= len(costs):
+            workers = [(n, 0) for n in costs[:candidates]] + [(n, 1) for n in costs[-candidates:]]
+        else:
+            workers = [(n, i < len(costs)//2) for i, n in enumerate(costs)]
+            
         heapify(workers)
 
         total = 0
         head, tail = candidates, len(costs)-candidates-1
+        print(len(workers))
         for _ in range(k):
             choice, start = heappop(workers)
             total += choice
