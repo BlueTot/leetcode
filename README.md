@@ -10,11 +10,13 @@ My collection of completed leetcode problems, synced to this repository via [**L
 | [0300-longest-increasing-subsequence](https://github.com/BlueTot/leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0416-partition-equal-subset-sum](https://github.com/BlueTot/leetcode/tree/master/0416-partition-equal-subset-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
 | [1130-last-stone-weight-ii](https://github.com/BlueTot/leetcode/tree/master/1130-last-stone-weight-ii) |
 ## Divide and Conquer
 |  |
 | ------- |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -58,4 +60,24 @@ My collection of completed leetcode problems, synced to this repository via [**L
 |  |
 | ------- |
 | [0210-course-schedule-ii](https://github.com/BlueTot/leetcode/tree/master/0210-course-schedule-ii) |
+## Math
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+## Geometry
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+## Sorting
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+## Quickselect
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
 <!---LeetCode Topics End-->
