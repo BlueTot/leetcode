@@ -42,4 +42,20 @@ My collection of completed leetcode problems, synced to this repository via [**L
 |  |
 | ------- |
 | [0086-partition-list](https://github.com/BlueTot/leetcode/tree/master/0086-partition-list) |
+## Depth-First Search
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/BlueTot/leetcode/tree/master/0210-course-schedule-ii) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/BlueTot/leetcode/tree/master/0210-course-schedule-ii) |
+## Graph
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/BlueTot/leetcode/tree/master/0210-course-schedule-ii) |
+## Topological Sort
+|  |
+| ------- |
+| [0210-course-schedule-ii](https://github.com/BlueTot/leetcode/tree/master/0210-course-schedule-ii) |
 <!---LeetCode Topics End-->
