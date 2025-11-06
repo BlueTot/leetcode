@@ -34,4 +34,12 @@ My collection of completed leetcode problems, synced to this repository via [**L
 |  |
 | ------- |
 | [0300-longest-increasing-subsequence](https://github.com/BlueTot/leetcode/tree/master/0300-longest-increasing-subsequence) |
+## Linked List
+|  |
+| ------- |
+| [0086-partition-list](https://github.com/BlueTot/leetcode/tree/master/0086-partition-list) |
+## Two Pointers
+|  |
+| ------- |
+| [0086-partition-list](https://github.com/BlueTot/leetcode/tree/master/0086-partition-list) |
 <!---LeetCode Topics End-->
