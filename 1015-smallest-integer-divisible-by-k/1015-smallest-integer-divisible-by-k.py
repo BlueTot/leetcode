@@ -13,8 +13,6 @@ class Solution:
             total = (total + curr) % k
             curr = (curr * 10) % k
 
-            # print(count, curr, total)
-
             if total != 0 and total in seen:
                 return -1
             
