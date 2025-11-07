@@ -1,5 +1,3 @@
-from heapq import heappush, heappop
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -29,12 +27,5 @@ class Solution:
         if len(levels) < k:
             return -1
 
-        min_heap = []
-        for num in levels:
-            heappush(min_heap, num)
-            if len(min_heap) > k:
-                heappop(min_heap)
-        
-        return min_heap[0]
-        
-
+        levels.sort(reverse=True)
+        return levels[k-1]
