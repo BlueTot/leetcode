@@ -12,11 +12,13 @@ My collection of completed leetcode problems, synced to this repository via [**L
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 | [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
 | [1130-last-stone-weight-ii](https://github.com/BlueTot/leetcode/tree/master/1130-last-stone-weight-ii) |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
 ## Divide and Conquer
 |  |
 | ------- |
 | [0954-maximum-sum-circular-subarray](https://github.com/BlueTot/leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 | [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -72,12 +74,19 @@ My collection of completed leetcode problems, synced to this repository via [**L
 |  |
 | ------- |
 | [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
 | [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
 ## Quickselect
 |  |
 | ------- |
 | [1014-k-closest-points-to-origin](https://github.com/BlueTot/leetcode/tree/master/1014-k-closest-points-to-origin) |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
+## String
+|  |
+| ------- |
+| [2113-find-the-kth-largest-integer-in-the-array](https://github.com/BlueTot/leetcode/tree/master/2113-find-the-kth-largest-integer-in-the-array) |
 <!---LeetCode Topics End-->
