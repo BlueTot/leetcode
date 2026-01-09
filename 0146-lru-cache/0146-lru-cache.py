@@ -1,23 +1,94 @@
+class Node:
+    def __init__(self, val=None, prev=None, next=None):
+        self.val = val
+        self.prev = prev
+        self.next = next
+
 class LRUCache:
 
     def __init__(self, capacity: int):
-        self.__usedCounter = 0
-        self.__dict = {}
+
+        # initialise the map
         self.__capacity = capacity
+        self.__map: dict[(int, int), Node] = {}
+
+        # initialise the doubly linked list
+        self.__head = Node()
+        self.__tail = Node()
+        self.__head.next = self.__tail
+        self.__tail.prev = self.__head
 
     def get(self, key: int) -> int:
-        if key in self.__dict:
-            self.__dict[key][1] = self.__usedCounter
-            self.__usedCounter += 1
-            return self.__dict[key][0]
-        return -1
-        
+        if key in self.__map:
+
+            val = self.__map[key].val[1]
+
+            # move from the middle to the tail
+            node = self.__map[key]
+            node.prev.next = node.next
+            node.next.prev = node.prev
+
+            self.__tail.prev.next = node
+            node.prev = self.__tail.prev
+            node.next = self.__tail
+            self.__tail.prev = node
+
+            # curr = self.__head.next
+            # while (curr.next != None):
+            #     print(curr.val, curr.prev.val, curr.next.val)
+            #     curr = curr.next
+
+            return val
+        else:
+            return -1  
+
     def put(self, key: int, value: int) -> None:
-        if key not in self.__dict and len(self.__dict) == self.__capacity:
-            minKey = min(self.__dict, key=lambda k : self.__dict[k][1])
-            self.__dict.pop(minKey)
-        self.__dict[key] = [value, self.__usedCounter]
-        self.__usedCounter += 1
+
+        # if in the map already
+        if key in self.__map:
+
+            # move from the middle to the tail
+            node = self.__map[key]
+            node.val = (key, value) # update value
+            node.prev.next = node.next
+            node.next.prev = node.prev
+
+            self.__tail.prev.next = node
+            node.prev = self.__tail.prev
+            node.next = self.__tail
+            self.__tail.prev = node
+        
+        else:
+
+            # if at max capacity, we evict:
+            if len(self.__map) == self.__capacity:
+
+                evict_key = self.__head.next.val[0]
+                self.__map.pop(evict_key)
+                self.__head.next = self.__head.next.next
+                self.__head.next.prev = self.__head
+
+            # make new node and append to tail
+            node = Node((key, value))
+
+            if len(self.__map) == 0:
+                self.__head.next = node
+                node.prev = self.__head
+                node.next = self.__tail
+                self.__tail.prev = node
+            else:
+                self.__tail.prev.next = node
+                node.prev = self.__tail.prev
+                node.next = self.__tail
+                self.__tail.prev = node
+
+            self.__map[key] = node
+        
+        # curr = self.__head.next
+        # while (curr.next != None):
+        #     print(curr.val, curr.prev.val, curr.next.val)
+        #     curr = curr.next
+
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
