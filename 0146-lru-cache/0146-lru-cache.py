@@ -33,11 +33,6 @@ class LRUCache:
             node.next = self.__tail
             self.__tail.prev = node
 
-            # curr = self.__head.next
-            # while (curr.next != None):
-            #     print(curr.val, curr.prev.val, curr.next.val)
-            #     curr = curr.next
-
             return val
         else:
             return -1  
@@ -50,13 +45,13 @@ class LRUCache:
             # move from the middle to the tail
             node = self.__map[key]
             node.val = (key, value) # update value
-            node.prev.next = node.next
-            node.next.prev = node.prev
+            # node.prev.next = node.next
+            # node.next.prev = node.prev
 
-            self.__tail.prev.next = node
-            node.prev = self.__tail.prev
-            node.next = self.__tail
-            self.__tail.prev = node
+            # self.__tail.prev.next = node
+            # node.prev = self.__tail.prev
+            # node.next = self.__tail
+            # self.__tail.prev = node
         
         else:
 
@@ -83,12 +78,7 @@ class LRUCache:
                 self.__tail.prev = node
 
             self.__map[key] = node
-        
-        # curr = self.__head.next
-        # while (curr.next != None):
-        #     print(curr.val, curr.prev.val, curr.next.val)
-        #     curr = curr.next
-
+    
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
