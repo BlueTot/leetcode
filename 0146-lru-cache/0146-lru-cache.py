@@ -18,6 +18,7 @@ class LRUCache:
         self.__head.next = self.__tail
         self.__tail.prev = self.__head
 
+    # on each get, we move node to the end of the list
     def get(self, key: int) -> int:
         if key in self.__map:
 
@@ -39,23 +40,24 @@ class LRUCache:
 
     def put(self, key: int, value: int) -> None:
 
-        # if in the map already
+        # if in the map already, update value and move
+        # node to the end of the list
         if key in self.__map:
 
             # move from the middle to the tail
             node = self.__map[key]
             node.val = (key, value) # update value
-            # node.prev.next = node.next
-            # node.next.prev = node.prev
+            node.prev.next = node.next
+            node.next.prev = node.prev
 
-            # self.__tail.prev.next = node
-            # node.prev = self.__tail.prev
-            # node.next = self.__tail
-            # self.__tail.prev = node
+            self.__tail.prev.next = node
+            node.prev = self.__tail.prev
+            node.next = self.__tail
+            self.__tail.prev = node
         
         else:
 
-            # if at max capacity, we evict:
+            # if at max capacity, we evict from the head
             if len(self.__map) == self.__capacity:
 
                 evict_key = self.__head.next.val[0]
