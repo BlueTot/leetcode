@@ -10,7 +10,6 @@ class Solution:
 
         for r in range(n):
             for c in range(m):
-                # print(r, c, mat[r][c])
                 if mat[r][c] == 0:
                     is_adj = False
                     for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
@@ -18,7 +17,6 @@ class Solution:
                         if 0 <= nr < n and 0 <= nc < m and mat[nr][nc] == 1:
                             is_adj = True
                             break
-                    # print(r, c, is_adj)
                     if is_adj:
                         queue.append(((r, c), 0))
         
@@ -34,7 +32,6 @@ class Solution:
                 if 0 <= nr < n and 0 <= nc < m and \
                     mat[nr][nc] == 1 and (nr, nc) not in visited:
                     queue.append(((nr, nc), dist + 1))
-            # print(queue)
         
         return res
 
