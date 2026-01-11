@@ -31,10 +31,6 @@ class Solution:
                         return bfs((r, c))
     
         queue, dists = get_edge()
-        print(queue)
-        
-        # print(edge)
-        # print(grid)
         
         def bfs2(queue, dists):
             res = []
@@ -47,6 +43,5 @@ class Solution:
                     if 0 <= nr < n and 0 <= nc < m and dists[nr][nc] == -1 and grid[nr][nc] != 2:
                         dists[nr][nc] = 1 + dists[r][c]
                         queue.append((nr, nc))
-                # print(queue)
         
         return bfs2(queue, dists)
