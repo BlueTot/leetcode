@@ -2,6 +2,11 @@ from collections import deque
 
 class Solution:
     def shortestBridge(self, grid: List[List[int]]) -> int:
+
+        # the idea is to find a 1 cell and do one bfs to get the outer frontier
+        # we mark all visited nodes as 2
+        # and then we do a second multi-start bfs to get to the second island
+        # we mark nodes as visited when we append to the queue, for efficiency purposes
         
         n = len(grid)
         m = len(grid[0])
