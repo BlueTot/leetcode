@@ -1,6 +1,10 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
+
+        // the idea is that we maintain a vector of the number of set bits in each position
+        // if the number of set bits in total is 1 mod 3, then that bit must be set in the result number
+        // we find the set bits to reconstruct the result number
         
         vector<int> positions(32, 0);
         for (int i = 0; i < nums.size(); i++) {
@@ -12,10 +16,6 @@ public:
                 j++;
             }
         }
-
-        // for (int i = 0; i < positions.size(); i++) {
-        //     cout << positions[i] << "\n";
-        // }
 
         int res = 0;
         for (int i = positions.size()-1; i >= 0; i--) {
