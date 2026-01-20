@@ -13,6 +13,15 @@ class Solution {
 public:
     int countNodes(TreeNode* root) {
 
+        // idea is that one of the subtrees will be perfect, one isnt
+        // we can test by checking the heights of the subtrees
+        // once we know which is perfect, if its height is h, the number of nodes
+        // in the subtree is 2^(h+1)-1. And we can add on the root node, and recurse to the
+        // imperfect subtree
+
+        // we make log(n) recursive calls, each level we perform log(n) work so it is
+        // log(n)^2 time complexity
+
         if (root == NULL)
             return 0;
 
@@ -33,7 +42,6 @@ public:
             right_height++;
         }
 
-        // cout << left_height << " " << right_height << "\n";
         // equal - left subtree is perfect
         if (left_height == right_height) {
             return (1 << left_height) + countNodes(root->right);
