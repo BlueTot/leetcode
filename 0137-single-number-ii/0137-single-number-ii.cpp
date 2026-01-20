@@ -6,7 +6,7 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             int num = nums[i];
             int j = 0;
-            while (num > 0) {
+            while (num != 0 && j < 32) {
                 positions[j] += num & 1;
                 num >>= 1;
                 j++;
