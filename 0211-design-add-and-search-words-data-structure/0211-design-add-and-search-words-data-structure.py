@@ -1,12 +1,8 @@
 class Node:
     def __init__(self, key, is_final):
         self.key = key
-        self.value = None
         self.is_final = is_final
         self.nexts = {}
-    
-    def __repr__(self):
-        return f"({self.key}, {self.value}, {self.is_final}, {self.nexts})"
 
 
 class WordDictionary:
@@ -32,13 +28,8 @@ class WordDictionary:
         
         # at the end, we insert the word
         curr.is_final = True
-        curr.value = word
-
-        # print(self.__root)
     
     def __search(self, curr: Node, word: str, index: int) -> bool:
-
-        # print(curr.key, word, index)
 
         if index == len(word):
             return curr.is_final
