@@ -24,8 +24,6 @@ class Solution:
                     r += 1
                 count += r
             
-            # print(left, right, left_count, right_count, count)
-            
             # merge arrays
             res = []
             i, j = 0, 0
