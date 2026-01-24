@@ -20,7 +20,7 @@ class Solution:
             # merge counts
             r, count = 0, 0
             for l in range(0, len(left)):
-                while (left[l] > 2 * right[r]):
+                while (r < len(right) and left[l] > 2 * right[r]):
                     r += 1
                 count += r
             
