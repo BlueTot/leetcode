@@ -7,11 +7,10 @@ public:
         for (string word : wordList)
             words.insert(word);
 
-        unordered_set<string> visited;
         deque<pair<string, int>> queue;
         queue.push_back({beginWord, 0});
-        visited.insert(beginWord);
         string next;
+        words.erase(beginWord);
 
         // breadth-first-search
         // time complexity is O(N * L)
@@ -28,8 +27,8 @@ public:
                 for (char c = 'a'; c <= 'z'; c++) {
                     next = word; // copy
                     next = next.replace(i, 1, 1, c);
-                    if (words.contains(next) && !visited.contains(next)) {
-                        visited.insert(next);
+                    if (words.contains(next)) {
+                        words.erase(next);
                         queue.push_back({next, dist + 1});
                     }
                 }
