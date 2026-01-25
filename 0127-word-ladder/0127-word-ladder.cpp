@@ -10,7 +10,7 @@ public:
         deque<pair<string, int>> queue;
         queue.push_back({beginWord, 0});
         string next;
-        words.erase(beginWord);
+        words.erase(beginWord); // we remove from the set to mark it as visited
 
         // breadth-first-search
         // time complexity is O(N * L)
@@ -28,7 +28,7 @@ public:
                     next = word; // copy
                     next = next.replace(i, 1, 1, c);
                     if (words.contains(next)) {
-                        words.erase(next);
+                        words.erase(next); // remove to mark as visited
                         queue.push_back({next, dist + 1});
                     }
                 }
