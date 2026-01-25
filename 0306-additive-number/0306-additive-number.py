@@ -6,17 +6,19 @@ class Solution:
                 return True
             if k == 0:
                 for j in range(i, len(num)):
-                    if num[i] != '0' and backtrack(j+1, k + 1, 0, int(num[i:j+1])):
-                        return True
+                    if num[i] != '0' or j == i:
+                        if backtrack(j+1, k + 1, 0, int(num[i:j+1])):
+                            return True
                 return False
             elif k == 1:
                 for j in range(i, len(num)):
-                    if num[i] != '0' and backtrack(j+1, k + 1, num2, int(num[i:j+1])):
-                        return True
+                    if num[i] != '0' or j == i:
+                        if backtrack(j+1, k + 1, num2, int(num[i:j+1])):
+                            return True
                 return False
             else:
                 for j in range(i, len(num)):
-                    if (s := int(num[i:j+1])) == num1 + num2 and num[i] != '0':
+                    if (s := int(num[i:j+1])) == num1 + num2 and (num[i] != '0' or j == i):
                         if backtrack(j+1, k+1, num2, s):
                             return True
                 return False
