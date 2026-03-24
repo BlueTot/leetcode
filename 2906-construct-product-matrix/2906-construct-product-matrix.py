@@ -23,7 +23,6 @@ class Solution:
                 else:
                     product_right[idx] = (product_right[idx+1] * grid[i][j]) % M
         
-        res = [[0 for _ in range(m)] for _ in range(n)]
         for i in range(len(grid)):
             for j in range(len(grid[0])):
 
@@ -32,10 +31,10 @@ class Solution:
                 right = idx + 1
 
                 if idx == 0:
-                    res[i][j] = product_right[right]
+                    grid[i][j] = product_right[right]
                 elif idx == n*m-1:
-                    res[i][j] = product_left[left]
+                    grid[i][j] = product_left[left]
                 else:
-                    res[i][j] = (product_left[left] * product_right[right]) % M
+                    grid[i][j] = (product_left[left] * product_right[right]) % M
         
-        return res
+        return grid
