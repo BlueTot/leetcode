@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def checkStrings(self, s1: str, s2: str) -> bool:
         
@@ -15,4 +17,4 @@ class Solution:
             else:
                 odd_s2.append(c)
         
-        return sorted(odd_s1) == sorted(odd_s2) and sorted(even_s1) == sorted(even_s2)
+        return Counter(odd_s1) == Counter(odd_s2) and Counter(even_s1) == Counter(even_s2)
