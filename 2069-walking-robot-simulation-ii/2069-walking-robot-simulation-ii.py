@@ -9,10 +9,6 @@ class Robot:
         self.__y = 0
         self.__dir = 1
         self.__M = ((self.__width - 1) + (self.__height - 1)) * 2
-        self.__CORNERS = [
-            (0, 0), (self.__width-1, 0), 
-            (0, self.__height-1), (self.__width-1, self.__height-1)
-        ]
 
     def step(self, num: int) -> None:
 
@@ -20,8 +16,9 @@ class Robot:
         # reduce by perimeter size
         num = num % self.__M
 
-        # edge case
+        # edge case - don't turn at the end when facing along the wall at a corner
         if num == 0:
+            # 0, 0: facing east: should face south
             if (self.__x, self.__y) == (0, 0) and self.__dir == 1:
                 self.__dir = 2
             if (self.__x, self.__y) == (self.__width-1, 0) and self.__dir == 0:
