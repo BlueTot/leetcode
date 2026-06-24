@@ -5,6 +5,10 @@ class Solution:
 
         m, n = len(matrix), len(matrix[0])
         min_heap = []
+
+        # we use the 2D prefix sum formula
+        # A[i,j] = A[i-1,j] + A[i,j-1] - A[i-1][j-1] + M[i,j]
+        # in this case + is XOR and - is the inverse of XOR which is also XOR
         
         for i in range(m):
             for j in range(n):
